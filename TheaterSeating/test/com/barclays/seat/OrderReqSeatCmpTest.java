@@ -13,7 +13,7 @@ public class OrderReqSeatCmpTest {
 		Order order1 = new Order(1, "Ranjit", 10);
 		Order order2 = new Order(2, "Jone", 10);
 		OrderReqSeatCmp asc = OrderReqSeatCmp.ASC_ORDER;
-		int i = asc.compare(order1, order1);
-		assertEquals(1, i);
+		int i = asc.compare(order1, order2);
+		assertEquals(-1, i);
 	}
 }
