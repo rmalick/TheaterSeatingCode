@@ -25,7 +25,10 @@ public class TheaterLayoutUtil {
 
 			// parse seat layout
 			System.out
-					.println("Layout\n-----------------------------------------------------");
+					.println("*****************************************************");
+			System.out.println("Layout");
+			System.out
+					.println("*****************************************************\n");
 			int rowIndex = 1;
 			while ((line = inputStream.readLine()) != null) {
 				if (line.trim().isEmpty()) {
@@ -43,7 +46,10 @@ public class TheaterLayoutUtil {
 
 			// parse order layout
 			System.out
-					.println("\nOrders\n-----------------------------------------------------");
+					.println("\n\n*****************************************************");
+			System.out.println("Orders");
+			System.out
+					.println("*****************************************************\n");
 			int orderInex = 1;
 			while ((line = inputStream.readLine()) != null) {
 

@@ -18,6 +18,7 @@ public class OrderTest {
 	public void toStringTest() {
 
 		assertTrue(order.equals(order));
+		
 
 	}
 

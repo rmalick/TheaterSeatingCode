@@ -36,9 +36,11 @@ public class SeatAssignmentImpl implements SeatAssignment {
 	public void generateResponse() {
 
 		this.regenerateResponse();
-
 		System.out
-				.println("\n\nResponses\n-----------------------------------------");
+				.println("\n\n*****************************************************");
+		System.out.println("Responses");
+		System.out
+				.println("*****************************************************\n");
 		for (Integer index : responseMap.keySet()) {
 			System.out.println(responseMap.get(index));
 		}
@@ -46,7 +48,7 @@ public class SeatAssignmentImpl implements SeatAssignment {
 	}
 
 	/**
-	 * Re assign if any possibility there to upgrade
+	 * Re-assign if any possibility there to upgrade
 	 */
 
 	private void regenerateResponse() {
@@ -146,6 +148,10 @@ public class SeatAssignmentImpl implements SeatAssignment {
 		}
 	}
 
+	/**
+	 * Seat assigning start from here
+	 */
+
 	@Override
 	public void startAssignment() {
 		RowLayout rowLayout;
@@ -176,6 +182,7 @@ public class SeatAssignmentImpl implements SeatAssignment {
 				}
 			}
 		}
+		// assign remaining orders
 		if (this.theaterLayout.getOrderMap().size() > 0) {
 			assignRemainingOrders();
 		}
@@ -206,6 +213,11 @@ public class SeatAssignmentImpl implements SeatAssignment {
 		}
 	}
 
+	/**
+	 * 
+	 * @param order
+	 * @return section where these order can be booked
+	 */
 	private Section bookFirstEligibleSection(Order order) {
 		Section sectionToBook = null;
 		RowLayout rowLayout;
@@ -230,6 +242,15 @@ public class SeatAssignmentImpl implements SeatAssignment {
 		}
 		return sectionToBook;
 	}
+
+	/**
+	 * 
+	 * @param eligibleProrityOrderMap
+	 * @param rowId
+	 * @param sectionId
+	 * @param reqSeats
+	 * @return Most eligible set of orders for booking
+	 */
 
 	private Set<Order> findMostEligibleOrderSet(
 			TreeMap<Integer, Set<Order>> eligibleProrityOrderMap, int rowId,
@@ -267,6 +288,13 @@ public class SeatAssignmentImpl implements SeatAssignment {
 		return orderSet;
 	}
 
+	/**
+	 * 
+	 * @param barredRowId
+	 * @param barredSectionId
+	 * @param reqSeats
+	 * @return how many other location available for booking
+	 */
 	private int countOtherSectionAvailableForBooking(int barredRowId,
 			int barredSectionId, int reqSeats) {
 		int result = 0;
@@ -318,6 +346,12 @@ public class SeatAssignmentImpl implements SeatAssignment {
 		return orders;
 	}
 
+	/**
+	 * 
+	 * @param probableOrders
+	 * @param section
+	 * @return List of set of eligible orders
+	 */
 	private List<Set<Order>> getEligibleOrders_nextGen(
 			Set<Order> probableOrders, Section section) {
 		List<Set<Order>> orderSets = new ArrayList<Set<Order>>();
