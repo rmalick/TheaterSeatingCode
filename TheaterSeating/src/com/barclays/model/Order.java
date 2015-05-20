@@ -1,10 +1,12 @@
 package com.barclays.model;
+
+import java.io.Serializable;
+
 /**
- * 
- * @author ranjit_malick 
- * 
+ * @author ranjit_malick
  */
-public class Order {
+public class Order implements Serializable {
+	private static final long serialVersionUID = 1L;
 	private String partyName;
 	private Integer requiredSeatCount;
 	private Integer index;
