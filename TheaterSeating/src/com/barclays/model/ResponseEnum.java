@@ -1,8 +1,6 @@
 package com.barclays.model;
 /**
- * 
  * @author ranjit_malick 
- * 
  */
 public enum ResponseEnum {
 	CANT_ASSIGN("Sorry, we can't handle your party."), SPLIT_TO_CALL("Call to split party.");

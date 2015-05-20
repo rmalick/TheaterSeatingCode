@@ -4,9 +4,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
- * 
  * @author ranjit_malick
- * 
  */
 public class TheaterLayout {
 

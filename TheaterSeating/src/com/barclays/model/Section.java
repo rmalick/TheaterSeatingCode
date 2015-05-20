@@ -1,11 +1,13 @@
 package com.barclays.model;
-/**
- * 
- * @author ranjit_malick 
- * 
- */
-public class Section {
 
+import java.io.Serializable;
+
+/**
+ * @author ranjit_malick
+ */
+public class Section implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 	private int rowIndex;
 	private int index;
 	private int remainingSize;

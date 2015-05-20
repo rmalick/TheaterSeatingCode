@@ -7,6 +7,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Map;
 
+import com.barclays.exception.OrderFormatException;
 import com.barclays.model.Order;
 import com.barclays.model.RowLayout;
 import com.barclays.model.TheaterLayout;
@@ -52,12 +53,17 @@ public class TheaterLayoutUtil {
 					.println("*****************************************************\n");
 			int orderInex = 1;
 			while ((line = inputStream.readLine()) != null) {
-
-				String[] str = line.split(" ");
-				Order order = new Order(orderInex, str[0],
-						Integer.parseInt(str[1]));
-				orderMap.put(orderInex++, order);
-				System.out.println(order);
+				try {
+					String[] str = line.split(" ");
+					int orderSize = Integer.parseInt(str[1]);
+					if (orderSize < 0)
+						throw new OrderFormatException();
+					Order order = new Order(orderInex, str[0], orderSize);
+					orderMap.put(orderInex++, order);
+					System.out.println(order);
+				} catch (NumberFormatException exception) {
+					throw new OrderFormatException();
+				}
 			}
 
 		} catch (FileNotFoundException e) {

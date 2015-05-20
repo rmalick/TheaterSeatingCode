@@ -5,7 +5,7 @@ import java.util.Comparator;
 import com.barclays.model.Order;
 
 /**
- * Comparator for Orders
+ * Comparator for Orders.Both ascending and descending
  */
 public enum OrderReqSeatCmp implements Comparator<Order> {
 

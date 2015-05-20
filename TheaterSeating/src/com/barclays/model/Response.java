@@ -1,6 +1,12 @@
 package com.barclays.model;
 
-public class Response {
+import java.io.Serializable;
+/**
+ * @author ranjit_malick
+ */
+
+public class Response implements Serializable {
+	private static final long serialVersionUID = 1L;
 	private Order order;
 	private Section section;
 	private String mesg;
